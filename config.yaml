@@ -1,0 +1,33 @@
+# Default configuration. Override any of this with --config path/to/file.yaml
+# or the matching CLI flags (see `python main.py --help`).
+
+provider: anthropic   # "anthropic" or "openai"
+
+anthropic:
+  model: claude-sonnet-4-5   # check docs.claude.com for the current slug
+
+openai:
+  model: gpt-4.1             # check platform.openai.com/docs for the current slug
+
+# Hosts the agent is permitted to act against. Every tool call is checked
+# against this list and refuses anything not on it. Only ever add a host
+# you own or are explicitly authorized to test.
+allowed_hosts:
+  - localhost
+  - 127.0.0.1
+
+max_steps: 20
+max_ports_scanned: 15
+confirm_state_changes: true
+
+common_paths:
+  - /robots.txt
+  - /admin
+  - /login
+  - /api
+  - /.env
+  - /config
+  - /backup
+  - /rest/user/whoami
+  - /.git/config
+  - /swagger.json
